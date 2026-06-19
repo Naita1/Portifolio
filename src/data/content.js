@@ -2,8 +2,8 @@ export const profile = {
   name: 'Tainá Ribeiro',
   role: 'Desenvolvedora',
   tagline: 'Front-end com React + Automação com Python. Transformando ideias em código.',
-  location: 'Baseado(a) em — São Paulo',
-  email: 'tainaribeir1930@email.com',
+  location: 'Baseado em — São Paulo',
+  email: 'tainaribeir1930@gmail.com',
   socials: [
     { label: 'GH', value: '/Naita1', href: 'https://github.com/Naita1' },
     { label: 'LI', value: '/taina-cl-ribeiro', href: 'https://www.linkedin.com/in/taina-cl-ribeiro/' },

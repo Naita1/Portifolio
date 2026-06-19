@@ -2,6 +2,8 @@
 
 Meu portfólio em React (Vite) com hero de parallax em 5 camadas. Construí a partir de imagens de nuvens com identidade visual "cyberpunk ao entardecer".
 
+🌐 **[Acesse o portfólio](https://portifolio-eight-blond.vercel.app/)**
+
 ## Como rodar
 
 ```bash
