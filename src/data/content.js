@@ -14,8 +14,8 @@ export const about = {
   eyebrow: 'sobre',
   heading: ['Criatividade', 'em código.'],
   paragraphs: [
-    'Sou estudante de Análise e Desenvolvimento de Sistemas no IFSP e atuo como Estagiária de Desenvolvimento de Software. Meu foco é combinar a criatividade do Front-end com a eficiência da Automação.',
-    'Atualmente trabalho com Interfaces em React.js e robôs (RPA) com Python. Tenho especial interesse em Arquitetura de Software, UI/UX e Oracle, e estou aprendendo PL/SQL Avançado e Integração de APIs.',
+  'Sou estudante de Análise e Desenvolvimento de Sistemas no IFSP e atuo como estagiária em Desenvolvimento de Software, com foco principal em automação de processos e otimização de fluxos corporativos.',
+  'Na área de automação, trabalho com RPA utilizando Python e integração de sistemas, contribuindo para a eficiência e escalabilidade de processos empresariais. Paralelamente, desenvolvo projetos pessoais em Front-end com React.js, com interesse em UI/UX, Arquitetura de Software, APIs e Banco de Dados Oracle, além de estudos em PL/SQL avançado.'
   ],
   facts: [
     { label: 'Foco', value: 'Front-end & Automação' },
