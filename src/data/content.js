@@ -36,6 +36,8 @@ export const timeline = [
 ]
 
 export const skills = {
+  eyebrow: 'skills',
+  heading: ['Ferramentas', 'de trabalho.'],
   software: ['VS Code', 'Git', 'Vite', 'DevTools'],
   code: ['React', 'JavaScript', 'Python', 'HTML', 'CSS', 'SQL'],
   tags: ['Front-end', 'RPA', 'Automação', 'Responsive Design', 'APIs'],
