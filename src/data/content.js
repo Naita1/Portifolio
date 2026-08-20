@@ -85,10 +85,20 @@ export const skills = {
 export const projects = [
   {
     title: 'Manto Store',
-    description: 'Plataforma de e-commerce premium para camisas de futebol com tema escuro, personalização em tempo real, cálculo dinâmico de frete e autenticação segura integrada com Firebase.',
+    description:
+      'Plataforma de e-commerce premium para camisas de futebol com tema escuro, personalização em tempo real, cálculo dinâmico de frete e autenticação segura integrada com Firebase.',
     tags: ['React', 'Firebase', 'Vite', 'UI/UX'],
     link: 'https://manto-store-eight.vercel.app/',
     github: 'https://github.com/Naita1/Manto-Store',
+  },
+  {
+    title: 'Cyberpunk Mech',
+    description:
+      'Aplicação Full-stack com interface futurista cyberpunk e gerenciamento de garagens de robôs. Conta com backend robusto com arquitetura polimórfica, testes unitários e banco de dados Firestore.',
+    tags: ['React', 'Spring Boot', 'Tailwind CSS', 'Firebase', 'Java'],
+    link: 'https://cyber-punk-mech-ui.vercel.app/',
+    githubFront: 'https://github.com/Naita1/CyberPunkMech-UI',
+    githubBack: 'https://github.com/Naita1/CyberPunkMech-API',
   },
 ]
 

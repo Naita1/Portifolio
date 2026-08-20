@@ -17,7 +17,7 @@ export default function Projects() {
               <p className="project-card__description">{project.description}</p>
 
               <div className="project-card__tags">
-                {project.tags.map((tag) => (
+                {project.tags?.map((tag) => (
                   <span key={tag} className="project-card__tag">
                     {tag}
                   </span>
@@ -25,12 +25,49 @@ export default function Projects() {
               </div>
 
               <div className="project-card__links">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card__link">
-                  Visitar →
-                </a>
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-card__link project-card__link--github">
-                  GitHub
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card__link"
+                  >
+                    Visitar →
+                  </a>
+                )}
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card__link project-card__link--github"
+                  >
+                    GitHub
+                  </a>
+                )}
+
+                {project.githubFront && (
+                  <a
+                    href={project.githubFront}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card__link project-card__link--github"
+                  >
+                    GitHub (Front)
+                  </a>
+                )}
+
+                {project.githubBack && (
+                  <a
+                    href={project.githubBack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card__link project-card__link--github"
+                  >
+                    GitHub (Back)
+                  </a>
+                )}
               </div>
             </div>
           </div>
