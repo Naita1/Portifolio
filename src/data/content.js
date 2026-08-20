@@ -38,9 +38,44 @@ export const timeline = [
 export const skills = {
   eyebrow: 'skills',
   heading: ['Ferramentas', 'de trabalho.'],
-  software: ['VS Code', 'Git', 'Vite', 'DevTools'],
-  code: ['React', 'JavaScript', 'Python', 'HTML', 'CSS', 'SQL'],
-  tags: ['Front-end', 'RPA', 'Automação', 'Responsive Design', 'APIs'],
+  categories: [
+    {
+      title: 'Linguagens',
+      chipStyle: 'chip',
+      items: ['Python', 'JavaScript', 'Java', 'SQL'],
+    },
+    {
+      title: 'Front-end',
+      chipStyle: 'chip chip--cyan',
+      items: ['React.js', 'HTML', 'CSS', 'Tailwind CSS'],
+    },
+    {
+      title: 'Back-end & Dados',
+      chipStyle: 'chip chip--cyan',
+      items: ['Node.js', 'Flask', 'APIs RESTful', 'PostgreSQL', 'Firebase/Firestore', 'Oracle DB'],
+    },
+    {
+      title: 'Automação & DevOps',
+      chipStyle: 'chip',
+      items: ['Selenium', 'Pandas', 'Docker', 'Git', 'CI/CD'],
+    },
+    {
+      title: 'Ferramentas & Metodologias',
+      isWide: true,
+      chipStyle: 'chip chip--ghost',
+      items: [
+        'VS Code',
+        'IntelliJ IDEA',
+        'Figma',
+        'Vercel',
+        'Netlify',
+        'Jest',
+        'Pytest',
+        'Scrum',
+        'Kanban',
+      ],
+    },
+  ],
   languages: [
     { label: 'Português', level: 'Nativo' },
     { label: 'Inglês', level: 'Intermediário' },
