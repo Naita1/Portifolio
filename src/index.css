@@ -310,6 +310,10 @@ dt {
   color: var(--ink-soft);
   flex-wrap: wrap;
 }
+.contact-wrapper {
+  position: relative;
+  width: 100%;
+}
 .hero__socials a {
   display: flex;
   gap: 0.4rem;
