@@ -27,7 +27,6 @@ export default function Hero() {
     const el = sectionRef.current
     if (!el) return
 
-    // Cache de medições
     let top = el.offsetTop
     let vh = window.innerHeight
 
@@ -40,17 +39,12 @@ export default function Hero() {
       targetY = window.scrollY
     }
 
-    // Função de Interpolação Linear
     const lerp = (start, end, factor) => start + (end - start) * factor
 
     const animate = () => {
       if (!isVisible) return
 
-      // --- MUDANÇA 1: Fator LERP menor (0.04) para mais fluidez ---
       currentY = lerp(currentY, targetY, 0.04)
-
-      // --- MUDANÇA 2: Zona de escape no topo para opacidade instantânea ---
-      // Se estiver muito perto do topo, zera para evitar o "lag" da perseguição
       if (targetY < 5 && currentY < 10) {
         currentY = 0;
       }
@@ -67,19 +61,16 @@ export default function Hero() {
 
       if (contentRef.current) {
         contentRef.current.style.transform = `translate3d(0, ${progress * 30}px, 0)`
-        // Simplificamos o cálculo da opacidade para renderização mais rápida
         contentRef.current.style.opacity = 1 - progress * 0.9
       }
 
       rafId = requestAnimationFrame(animate)
     }
 
-    // IntersectionObserver para performance
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting
         if (isVisible) {
-          // Reinicia valores para evitar pulos ao reaparecer
           currentY = window.scrollY
           targetY = window.scrollY
           rafId = requestAnimationFrame(animate)
@@ -113,7 +104,7 @@ export default function Hero() {
               src={layer.src}
               alt=""
               className="hero__layer"
-              loading="eager" // Nuvens do topo devem carregar rápido
+              loading="eager"
               style={{ opacity: layer.opacity }}
             />
           ))}
