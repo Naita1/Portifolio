@@ -20,13 +20,43 @@ export default function Hero() {
 
   useEffect(() => {
     let rafId = null
-    const el = sectionRef.current
+    let isVisible = true
+    let targetY = window.scrollY
+    let currentY = window.scrollY
 
-    const update = () => {
-      const top = el.offsetTop
-      const vh = window.innerHeight
+    const el = sectionRef.current
+    if (!el) return
+
+    // Cache de medições
+    let top = el.offsetTop
+    let vh = window.innerHeight
+
+    const handleResize = () => {
+      top = el.offsetTop
+      vh = window.innerHeight
+    }
+
+    const handleScroll = () => {
+      targetY = window.scrollY
+    }
+
+    // Função de Interpolação Linear
+    const lerp = (start, end, factor) => start + (end - start) * factor
+
+    const animate = () => {
+      if (!isVisible) return
+
+      // --- MUDANÇA 1: Fator LERP menor (0.04) para mais fluidez ---
+      currentY = lerp(currentY, targetY, 0.04)
+
+      // --- MUDANÇA 2: Zona de escape no topo para opacidade instantânea ---
+      // Se estiver muito perto do topo, zera para evitar o "lag" da perseguição
+      if (targetY < 5 && currentY < 10) {
+        currentY = 0;
+      }
+
       const range = Math.max(vh * 0.6, 1)
-      const progress = Math.min(Math.max((window.scrollY - top) / range, 0), 1)
+      const progress = Math.min(Math.max((currentY - top) / range, 0), 1)
 
       LAYERS.forEach((layer, i) => {
         const node = layerRefs.current[i]
@@ -36,25 +66,38 @@ export default function Hero() {
       })
 
       if (contentRef.current) {
-        contentRef.current.style.transform = `translate3d(0, ${progress * 40}px, 0)`
+        contentRef.current.style.transform = `translate3d(0, ${progress * 30}px, 0)`
+        // Simplificamos o cálculo da opacidade para renderização mais rápida
         contentRef.current.style.opacity = 1 - progress * 0.9
       }
 
-      rafId = null
+      rafId = requestAnimationFrame(animate)
     }
 
-    const onScroll = () => {
-      if (rafId) return
-      rafId = requestAnimationFrame(update)
-    }
+    // IntersectionObserver para performance
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting
+        if (isVisible) {
+          // Reinicia valores para evitar pulos ao reaparecer
+          currentY = window.scrollY
+          targetY = window.scrollY
+          rafId = requestAnimationFrame(animate)
+        } else if (rafId) {
+          cancelAnimationFrame(rafId)
+        }
+      },
+      { threshold: 0 }
+    )
 
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    observer.observe(el)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
       if (rafId) cancelAnimationFrame(rafId)
     }
   }, [])
@@ -70,7 +113,7 @@ export default function Hero() {
               src={layer.src}
               alt=""
               className="hero__layer"
-              loading="lazy"
+              loading="eager" // Nuvens do topo devem carregar rápido
               style={{ opacity: layer.opacity }}
             />
           ))}
@@ -80,34 +123,12 @@ export default function Hero() {
 
         <div className="hero__content" ref={contentRef}>
           <p className="hero__eyebrow">{profile.role} — portfólio</p>
-
-          <h1 className="hero__title">
-            <span className="hero__title-stack" aria-hidden="true">
-              {profile.name}
-            </span>
-            <span className="hero__title-stack hero__title-stack--cyan" aria-hidden="true">
-              {profile.name}
-            </span>
-            <span className="hero__title-main">{profile.name}</span>
-          </h1>
-
+          <h1 className="hero__title">{profile.name}</h1>
           <p className="hero__tagline">{profile.tagline}</p>
-
-          <ul className="hero__socials">
-            {profile.socials.map((s) => (
-              <li key={s.label}>
-                <a href={s.href}>
-                  <span>{s.label}</span> {s.value}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <a href="#sobre" className="hero__scroll">
-          <span className="hero__scroll-ring">
-            <span>Scroll</span>
-          </span>
+          <span className="hero__scroll-ring"><span>Scroll</span></span>
         </a>
       </div>
     </section>
