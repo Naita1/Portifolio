@@ -44,9 +44,10 @@ export default function Hero() {
     const animate = () => {
       if (!isVisible) return
 
-      currentY = lerp(currentY, targetY, 0.04)
-      if (targetY < 5 && currentY < 10) {
-        currentY = 0;
+      if (targetY <= 2) {
+        currentY = 0
+      } else {
+        currentY = lerp(currentY, targetY, 0.12)
       }
 
       const range = Math.max(vh * 0.6, 1)
@@ -61,7 +62,7 @@ export default function Hero() {
 
       if (contentRef.current) {
         contentRef.current.style.transform = `translate3d(0, ${progress * 30}px, 0)`
-        contentRef.current.style.opacity = 1 - progress * 0.9
+        contentRef.current.style.opacity = Math.max(0, 1 - progress * 1.2)
       }
 
       rafId = requestAnimationFrame(animate)
@@ -94,32 +95,82 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="topo" className="hero" ref={sectionRef}>
-      <div className="hero__sticky">
-        <div className="hero__layers" aria-hidden="true">
+    <section id="topo" className="relative h-[160vh] bg-void" ref={sectionRef}>
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           {LAYERS.map((layer, i) => (
             <img
               key={i}
               ref={(node) => (layerRefs.current[i] = node)}
               src={layer.src}
               alt=""
-              className="hero__layer"
+              className="absolute inset-0 w-full h-full object-cover object-bottom transform-gpu will-change-transform"
               loading="eager"
               style={{ opacity: layer.opacity }}
             />
           ))}
-          <div className="hero__vignette" />
-          <div className="hero__grain" />
+
+          <div
+            className="absolute inset-0 z-[6]"
+            style={{
+              background: `radial-gradient(120% 70% at 50% 100%, rgba(10, 7, 32, 0) 0%, rgba(10, 7, 32, 0.85) 100%), linear-gradient(180deg, rgba(10, 7, 32, 0.55) 0%, rgba(10, 7, 32, 0.05) 30%, rgba(10, 7, 32, 0.1) 65%, rgba(10, 7, 32, 0.9) 100%)`,
+            }}
+          />
+
+          <div
+            className="absolute inset-0 z-[7] opacity-5 mix-blend-overlay"
+            style={{
+              backgroundImage: `repeating-linear-gradient(0deg, #fff 0px, transparent 1px, transparent 2px)`,
+            }}
+          />
         </div>
 
-        <div className="hero__content" ref={contentRef}>
-          <p className="hero__eyebrow">{profile.role} — portfólio</p>
-          <h1 className="hero__title">{profile.name}</h1>
-          <p className="hero__tagline">{profile.tagline}</p>
+        <div
+          className="relative z-[8] text-center px-6 max-w-[920px] transform-gpu will-change-transform"
+          ref={contentRef}
+        >
+          <p className="font-mono text-[0.85rem] tracking-[0.18em] uppercase text-ink-soft mb-5">
+            {profile.role} — portfólio
+          </p>
+
+          <h1 className="relative font-display font-extrabold text-[clamp(2.6rem,9vw,6.6rem)] leading-[0.96] -tracking-[0.02em] uppercase mb-[1.4rem]">
+            <span
+              className="absolute inset-0 block text-transparent opacity-55 translate-x-[7px] translate-y-[5px] [-webkit-text-stroke:1px_#e0507e]"
+              aria-hidden="true"
+            >
+              {profile.name}
+            </span>
+            <span
+              className="absolute inset-0 block text-transparent opacity-45 -translate-x-[7px] -translate-y-[4px] [-webkit-text-stroke:1px_#3fe8d0]"
+              aria-hidden="true"
+            >
+              {profile.name}
+            </span>
+            <span className="relative block text-ink-cream">{profile.name}</span>
+          </h1>
+
+          <p className="text-[clamp(1rem,2vw,1.25rem)] text-ink-soft max-w-[560px] mx-auto mb-8">
+            {profile.tagline}
+          </p>
+
+          <ul className="flex justify-center gap-[1.6rem] font-mono text-[0.85rem] text-ink-soft flex-wrap">
+            {profile.socials.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} className="flex gap-[0.4rem] hover:text-ink-cream transition-colors duration-300">
+                  <span className="text-accent-amber">{s.label}</span> {s.value}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <a href="#sobre" className="hero__scroll">
-          <span className="hero__scroll-ring"><span>Scroll</span></span>
+        <a
+          href="#sobre"
+          className="absolute bottom-[clamp(1.5rem,4vh,3rem)] left-1/2 -translate-x-1/2 z-[8] group"
+        >
+          <span className="flex items-center justify-center w-[84px] h-[84px] rounded-full bg-[#0a0720]/40 border border-white/10 backdrop-blur-[6px] font-mono text-[0.75rem] tracking-[0.08em] text-ink-cream animate-bob group-hover:border-accent-amber group-hover:scale-105 transition-all duration-300">
+            <span>Scroll</span>
+          </span>
         </a>
       </div>
     </section>

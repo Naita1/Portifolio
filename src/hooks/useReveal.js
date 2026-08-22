@@ -1,35 +1,39 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
-export function useReveal(threshold = 0.2) {
+export function useReveal(threshold = 0.15) {
+  const [isVisible, setIsVisible] = useState(false)
+  const [direction, setDirection] = useState('down') 
   const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
-    const node = ref.current
-    if (!node) return
+    const element = ref.current
+    if (!element) return
 
-    const prefersReduced = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches
-
-    if (prefersReduced) {
-      setVisible(true)
-      return
-    }
+    lastScrollY.current = window.scrollY
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        const currentScrollY = window.scrollY
+        
         if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
+          setDirection(currentScrollY >= lastScrollY.current ? 'down' : 'up')
+          setIsVisible(true)
+        } else {
+          setIsVisible(false)
         }
+
+        lastScrollY.current = currentScrollY
       },
-      { threshold, rootMargin: '0px 0px -8% 0px' }
+      { threshold }
     )
 
-    observer.observe(node)
-    return () => observer.disconnect()
+    observer.observe(element)
+
+    return () => {
+      if (element) observer.unobserve(element)
+    }
   }, [threshold])
 
-  return [ref, visible]
+  return [ref, isVisible, direction]
 }
