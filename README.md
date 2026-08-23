@@ -1,158 +1,65 @@
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=F48FB1,FFF59D,81D4FA&height=220&section=header&text=Tainá%20Ribeiro&fontSize=80&fontColor=ffffff&fontAlignY=35&desc=Full%20Stack%20Developer%20%7C%20React%20&%20Python&descSize=20&descAlignY=65&descAlign=50&animation=fadeIn"/>
-</div>
-<div align="center">
-  <br>
-  <a href="https://www.linkedin.com/in/taina-cl-ribeiro" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=F06292" />
-  </a>
-  <a href="mailto:tainaribeir1930@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=F48FB1" />
-  </a>
-</div>
-<br>
-<div align="center">
-  <h3>✨ Sobre Mim</h3>
-  <p width="600px">
-    Sou estudante de <b>Análise e Desenvolvimento de Sistemas no IFSP</b> e atuo como <b>Estagiária de Desenvolvimento de Software</b>.<br>
-    Meu foco é combinar a criatividade do Front-end com a eficiência da Automação.
-  </p>
-  
-  <p>
-    🚀 <b>Atualmente:</b> Interfaces em React.js e robôs (RPA) com Python.<br>
-    💡 <b>Interesses:</b> Arquitetura de Software, UI/UX e Oracle.<br>
-    🌱 <b>Aprendendo:</b> PL/SQL Avançado e Integração de APIs.
-  </p>
-</div>
-<div align="center">
-  <br>
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-  <br>
-</div>
-<div align="center">
-  <h3>💻 Tech Stack & Ferramentas</h3>
-  
-  <img src="https://img.shields.io/badge/Front--End-React_&_JS-FFB6C1?style=for-the-badge&logo=react&logoColor=white&color=F48FB1" />
-  <br>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&color=81D4FA"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&color=FBC02D"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&color=F06292"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&color=4FC3F7"/>
-  <br><br>
-  <img src="https://img.shields.io/badge/Back--End-Python_&_Dados-BA68C8?style=for-the-badge&logo=python&logoColor=white&color=FFF176" />
-  <br>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&color=81D4FA"/>
-  <img src="https://img.shields.io/badge/RPA_Automation-Automate?style=for-the-badge&logo=powerautomate&logoColor=white&color=F48FB1"/>
-  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white&color=FDD835"/>
-  <img src="https://img.shields.io/badge/Oracle_SQL-F80000?style=for-the-badge&logo=oracle&logoColor=white&color=F06292"/>
-  
-  <br><br>
-  
-  <img src="https://img.shields.io/badge/Ferramentas-Git_&_Agile-9575CD?style=for-the-badge&logo=git&logoColor=white&color=4FC3F7" />
-   <br>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&color=FFF176"/>
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white&color=81D4FA"/>
-  <img src="https://img.shields.io/badge/Scrum-Agile?style=for-the-badge&logo=jira&logoColor=white&color=F48FB1"/>
-</div>
-<br>
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=Naita1&locale=pt-br&mode=weekly&hide_border=true&background=FFFDE7&ring=F48FB1&fire=FBC02D&currStreakLabel=F06292&sideNums=4FC3F7&sideLabels=4FC3F7&dates=81D4FA" alt="GitHub Streak" />
-</div>
-
 # Portfolio — Tainá Ribeiro
 
-Portfólio interativo desenvolvido com React (Vite) e Tailwind CSS, trazendo uma experiência visual *cyberpunk ao entardecer* com parallax em 5 camadas e animações fluidas baseadas na direção do scroll.
+Meu portfólio em React (Vite) com hero de parallax em 5 camadas. Construí a partir de imagens de nuvens com identidade visual "cyberpunk ao entardecer".
 
 🌐 **[Acesse o portfólio](https://portifolio-eight-blond.vercel.app/)**
 
----
-
-## 🚀 Tecnologias e Ferramentas
-
-* **Core:** React 18 + Vite
-* **Estilização:** Tailwind CSS + PostCSS (Utility-First com Design Tokens customizados)
-* **Tipografia:** Syne (Display), Inter (Corpo) e Space Mono (Monospaced)
-* **Animações & Performance:** Hooks nativos com `requestAnimationFrame` e `IntersectionObserver`
-
----
-
-## 🛠️ Como Executar o Projeto
+## Como rodar
 
 ```bash
-# Instalar dependências
 npm install
-
-# Iniciar servidor de desenvolvimento
 npm run dev
-
 ```
 
-Acesse `http://localhost:5173` no seu navegador.
+Abre em `http://localhost:5173`.
 
 Build de produção:
 
 ```bash
 npm run build
 npm run preview
-
 ```
 
----
+## Decisões de Design
 
-## 🎨 Decisões de Design e Arquitetura
+**Paleta** — Criei um sistema híbrido: fundo em gradiente índigo profundo (extraído do céu das nuvens) + dois acentos neon, magenta e ciano (o toque cyberpunk), com âmbar quente como terceiro acento. Mantém a atmosfera sem ser óbvio.
 
-### 1. Paleta de Cores e Identidade Visual
+**Tipografia** — Syne (display, geométrica) para títulos, Inter para corpo, Space Mono para dados — reforça a sensação de painel/HUD.
 
-* **Base:** Fundo escuro baseado em gradiente índigo profundo extraído das nuvens.
-* **Destaques:** Neon saturado com **Magenta** e **Ciano** (símbolos da estética cyberpunk), complementados por **Âmbar** como ponto focal para avisos e eyebrow tags.
-* **Cards & Badges:** Uso de pílulas sólidas e com alto contraste para garantir excelente legibilidade sem apagar contra o fundo escuro.
+**As 5 camadas de nuvem** (`src/assets/clouds`), da mais distante pra mais próxima:
 
-### 2. Sistema de Parallax (Hero)
+| arquivo | papel | velocidade de parallax |
+|---|---|---|
+| `01-sky.png` | céu/gradiente de fundo | 0.04 (quase parada) |
+| `02-cloud-far.png` | nuvem mais distante | 0.10 |
+| `03-cloud-mid.png` | nuvem intermediária | 0.20 |
+| `04-cloud-near.png` | nuvem mais próxima | 0.34 |
+| `05-cloud-front.png` | nuvem de primeiro plano | 0.52 (mais rápida) |
 
-As 5 camadas de imagem (`src/assets/clouds`) criam profundidade por meio de movimentação em velocidades distintas atreladas ao scroll:
+Camadas mais próximas se movem mais rápido — cria ilusão de profundidade. A camada de céu recebe leve zoom para reforçar a distância.
 
-| Arquivo | Função Visual | Velocidade Parallax |
-| --- | --- | --- |
-| `01-sky.png` | Céu / Gradiente de fundo | `0.04` (Quase estático) |
-| `02-cloud-far.png` | Nuvens distantes | `0.10` |
-| `03-cloud-mid.png` | Nuvens intermediárias | `0.20` |
-| `04-cloud-near.png` | Nuvens próximas | `0.34` |
-| `05-cloud-front.png` | Primeiro plano | `0.52` (Mais rápida) |
+`05-cloud-front.png` reaparece como horizonte decorativo no fim da seção de Contato — fecha visualmente a página.
 
-*A camada `05-cloud-front.png` é reutilizada no rodapé (seção de Contato) para fechar a composição visual da página.*
+**Assinatura visual** — Usei aberração cromática no nome do Hero: duas cópias do texto, contornadas em magenta e ciano, deslocadas atrás. Reinterpretação cyberpunk com um toque pessoal.
 
-### 3. Animações e Performance (Zero Libs Pesadas)
+**Performance** — Construí hooks próprios (`useScrollY`, `useReveal`) sem libs pesadas de parallax. Uso `requestAnimationFrame` para throttle e apenas `transform`/`opacity` no Hero. Animações de entrada usam `IntersectionObserver` e respeitam `prefers-reduced-motion`.
 
-* **`useScrollY`:** Throttling do scroll via `requestAnimationFrame` com limpeza de cancelamento no ciclo de desmontagem para evitar vazamentos de memória.
-* **`useReveal`:** Animação de entrada por `IntersectionObserver` sensível à direção do scroll. Se você rola para baixo, o elemento sobe; se rola para cima, ele desce.
-* **Aceleração por Hardware:** Transições restritas a `opacity` e `transform` (`transform-gpu`, `will-change-[transform,opacity]`), rodando a 60fps na GPU sem causar re-layouts na CPU.
-
----
-
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
-.
-├── src/
-│   ├── assets/clouds/     # As 5 camadas de nuvem em Pixel Art
-│   ├── components/        # Componentes UI refatorados com Tailwind CSS
-│   ├── data/content.js    # Arquivo único com os dados do portfólio
-│   ├── hooks/             # Hooks customizados (useScrollY, useReveal)
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css          # Diretivas do Tailwind CSS e resets fundamentais
-├── tailwind.config.js     # Configuração de temas, cores customizadas e fontes
-├── postcss.config.js      # Processador CSS para o Tailwind
-└── package.json
-
+src/
+├── assets/clouds/        # 5 camadas de nuvem
+├── components/           # Nav, Hero, About, Resume, Skills, Projects, Contact, Footer
+├── data/content.js       # conteúdo centralizado (editável)
+├── hooks/
+│   ├── useScrollY.js     # scroll throttled via rAF
+│   └── useReveal.js      # fade-in via IntersectionObserver
+├── App.jsx
+├── main.jsx
+└── index.css             # design tokens + estilos
 ```
 
----
+## Créditos
 
-## 📄 Créditos e Licenças
-
-* **Assets de Nuvens:** *Sky with Clouds Background (Pixel Art Set)* por [free-game-assets](https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set) via [itch.io](https://itch.io/) — Licença CC0 (Domínio Público).
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=81D4FA,FFF59D,F48FB1&height=100&section=footer"/>
-</div>
+**Assets de Nuvens** — Sky with Clouds Background (Pixel Art Set) por [free-game-assets](https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set)  
+Disponível em [itch.io](https://itch.io/) — Licença CC0 (domínio público)
