@@ -5,19 +5,27 @@ export function useScrollY() {
     typeof window !== 'undefined' ? window.scrollY : 0
   )
   const ticking = useRef(false)
+  const rafId = useRef(null)
 
   useEffect(() => {
     const onScroll = () => {
       if (!ticking.current) {
         ticking.current = true
-        requestAnimationFrame(() => {
+        rafId.current = requestAnimationFrame(() => {
           setScrollY(window.scrollY)
           ticking.current = false
         })
       }
     }
+
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current)
+      }
+    }
   }, [])
 
   return scrollY
