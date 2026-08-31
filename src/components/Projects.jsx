@@ -20,7 +20,7 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="text-ink-soft leading-[1.6] mb-[1.2rem] flex-grow">
+              <p className="text-ink-soft leading-[1.6] mb-[1.2rem] flex-grow whitespace-pre-line">
                 {project.description}
               </p>
 

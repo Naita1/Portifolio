@@ -84,6 +84,14 @@ export const skills = {
 
 export const projects = [
   {
+    title: 'Fintech Flow',
+    description:
+      'Plataforma Full-Stack de gestão financeira projetada com foco em segurança e alta performance. Destaca-se pela implementação de autenticação robusta via JWT (Cookies HttpOnly), tratamento de resiliência para banco PostgreSQL serverless e dashboards interativos adaptados para desktop e mobile.\n\n Credenciais de teste:\nE-mail: teste@email.com | Senha: 123456',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Express', 'JWT'],
+    link: 'https://fintechflow-demo.vercel.app/',
+    github: 'https://github.com/Naita1/fintech-flow',
+  },
+  {
     title: 'Manto Store',
     description:
       'Plataforma de e-commerce premium para camisas de futebol com tema escuro, personalização em tempo real, cálculo dinâmico de frete e autenticação segura integrada com Firebase.',
